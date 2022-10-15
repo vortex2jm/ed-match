@@ -1,5 +1,6 @@
 #include "../include/post.h"
 #include <string.h>
+#include <stdlib.h>
 
 struct post{
   int reach;
