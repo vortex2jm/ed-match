@@ -1,10 +1,25 @@
 #include "../include/user.h"
+#include <stdlib.h>
+#include <string.h>
 
 struct user {
-  int id;
-  char * name;
-  char * bio;
+  int age;
   int friendsAmount;
-  // friendsList
-  // friendsRequest
+  char * name;
+  List * friendsPostsList;
+  List * ownPostsList;
+  List * hobbiesList; 
+  List * friendsList;
+  List * friendsRequestList;
 };
+
+User * UserConstructor(char * name, int age, char * location, List * hobbies){
+
+  User * user = calloc(1,sizeof(User));
+  user->name = strdup(name);
+  user->age = age;
+  user->hobbiesList = hobbies;
+
+  return user;
+}
+

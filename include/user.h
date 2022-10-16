@@ -1,10 +1,11 @@
 #ifndef user_h
 #define user_h
+#include "list.h"
 
 typedef struct user User;
 
 // Construtor do tipo usuário
-User * UserConstructor(char * nome, int id);
+User * UserConstructor(char * name, int age, char * location, List * hobbies);
 
 // Retorna o nome do usuário
 char * GetUserName(User * user);
