@@ -10,7 +10,7 @@ struct user {
   List * ownPostsList;
   List * hobbiesList; 
   List * friendsList;
-  List * friendsRequestList;
+  List * friendsSuggestionList;
 };
 
 User * UserConstructor(char * name, int age, char * location, List * hobbies){
@@ -23,3 +23,6 @@ User * UserConstructor(char * name, int age, char * location, List * hobbies){
   return user;
 }
 
+char * GetUserName(User * user){
+  return user->name;
+}
