@@ -11,7 +11,7 @@ List * PushList(List * list, void * element);
 
 void PrintList(List * list, print_list print_callback);
 
-void ListRemove(List * list, list_compare remove_callback, void * key);
+void * ListRemove(List * list, list_compare remove_callback, void * key);
 
 void DestructList(List * list);
 

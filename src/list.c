@@ -56,13 +56,15 @@ void PrintList(List * list, print_list print_callback){
 }
 
 //=================================================================//
-void ListRemove(List * list, list_compare remove_callback, void * key){
+void * ListRemove(List * list, list_compare remove_callback, void * key){
 
     if(!list) return;
 
     Cell * current = list->first;
     Cell * next = NULL;
     Cell * previous = NULL;
+
+    void * element = NULL;
 
     while(current){
         
@@ -81,11 +83,13 @@ void ListRemove(List * list, list_compare remove_callback, void * key){
                 previous->next = current->next;
             }
 
+            element = current->element;
             free(current);
         }
         previous = current;
         current = next;
     }
+    return element;
 }
 
 //=================================================================//
