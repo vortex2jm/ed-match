@@ -18,6 +18,12 @@ char * Gethobbie(Hobbie * hobbie){
   return hobbie->name;
 }
 
+void SetHobbie(Hobbie * hobbie, char * hobbieName){
+  if(hobbie->name)
+    free(hobbie->name);
+  hobbie->name = strdup(hobbieName);
+}
+
 void FreeHobbie(Hobbie * hobbie){
   if(hobbie){
     if(hobbie->name)
