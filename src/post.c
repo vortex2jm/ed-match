@@ -22,8 +22,16 @@ char * GetPostContent(Post * post){
   return post->content;
 }
 
+char * GetPostAuthor(Post * post){
+  return post->author;
+}
+
 int GetPostReach(Post * post){
   return post->reach;
+}
+
+void SetPostReach(Post * post, int value){
+  post->reach= value;
 }
 
 void FreePost(Post * post){
