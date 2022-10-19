@@ -10,6 +10,7 @@
 void StartValidator(int argc);
 int PackagesNumber(char ** argv);
 List * LoadUsers(char * fileWay);
+List * ProcessPackages(List * usersList, char * filesWay);
 
 // Private functions
 List * LoadHobbies(char * hobbies);
@@ -66,4 +67,8 @@ List * LoadHobbies(char * hobbies){
     hobbieName = strtok(NULL, ",");
   }
   return hobbiesList;
+}
+
+List * ProcessPackages(List * usersList, char * filesWay){
+  
 }

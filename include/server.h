@@ -8,4 +8,8 @@ int PackagesNumber(char ** argv);
 
 List * LoadUsers(char * fileWay);
 
+List * ProcessPackages(List * usersList, char * filesWay);
+
+void GenerateReports(List * usersList);
+
 #endif
