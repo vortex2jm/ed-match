@@ -10,10 +10,13 @@
 void StartValidator(int argc);
 int PackagesNumber(char ** argv);
 List * LoadUsers(char * fileWay);
-List * ProcessPackages(List * usersList, char * filesWay);
+List * ProcessPackages(List * usersList, char * allUsersFile,
+                       char * singleUserFile, int packageNumber);
 
 // Private functions
 List * LoadHobbies(char * hobbies);
+int LinesNumber(FILE * file);
+
 
 // ======================================================================== //
 void StartValidator(int argc){
@@ -69,6 +72,57 @@ List * LoadHobbies(char * hobbies){
   return hobbiesList;
 }
 
-List * ProcessPackages(List * usersList, char * filesWay){
+List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, int packageNumber){
+         
+  char name[50];
+  char singleUserFileWay[50];
+  FILE * usersFile = fopen(allUsersFile,"r");
   
+  // calculando a quantidade de usuarios (que eh igual a quantidade de linhas)
+  int linesNumber = LinesNumber(usersFile);
+  // movendo o ponteiro para o inicio do arquivo
+  fseek(usersFile,0,SEEK_SET);
+
+  // alocando memoria para os nomes
+  char ** usersName = malloc(sizeof(char*) * linesNumber);
+  for(int x=0;x<linesNumber;x++){
+    usersName[x] = malloc(sizeof(char) * 50);
+  }
+
+  int index=0;
+  while(!feof(usersFile)){
+    fscanf(usersFile,"%[^;]%*[^\n]\n",name);
+    usersName[index] = strdup(name);
+    index++;
+  }
+
+
+  FILE * singleUserfile;
+  for(int x=0;x<packageNumber;x++){
+    for(int y=0;y<linesNumber;y++){
+      sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersName[y]);
+      singleUserfile = fopen(singleUserFileWay,"a");
+      fprintf(singleUserfile,"oi");
+    }
+  }
+
+
+  // liberando memoria do array de nomes
+  for(int x=0;x<linesNumber;x++){
+    free(usersName[x]);
+  }
+  free(usersName);
+
+  fclose(usersFile);  
+}
+
+int LinesNumber(FILE * file){
+  int n=0;
+  char c;
+
+  while(fread(&c, sizeof(char), 1, file)){
+    if(c=='\n')
+      n++;
+  }
+  return n+1; 
 }

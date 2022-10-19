@@ -8,7 +8,8 @@ int PackagesNumber(char ** argv);
 
 List * LoadUsers(char * fileWay);
 
-List * ProcessPackages(List * usersList, char * filesWay);
+List * ProcessPackages(List * usersList, char * allUsersFile,
+   char * singleUserFile, int packageNumber);
 
 void GenerateReports(List * usersList);
 
