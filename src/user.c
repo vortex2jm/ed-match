@@ -6,6 +6,7 @@ struct user {
   int age;
   int friendsAmount;
   char * name;
+  char * location;
   List * friendsPostsList;
   List * ownPostsList;
   List * hobbiesList; 
@@ -17,6 +18,7 @@ User * UserConstructor(char * name, int age, char * location, List * hobbies){
 
   User * user = calloc(1,sizeof(User));
   user->name = strdup(name);
+  user->location = strdup(location);
   user->age = age;
   user->hobbiesList = hobbies;
 
@@ -25,4 +27,8 @@ User * UserConstructor(char * name, int age, char * location, List * hobbies){
 
 char * GetUserName(User * user){
   return user->name;
+}
+
+int GetUserAge(User * user){
+  return user->age;
 }
