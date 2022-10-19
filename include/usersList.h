@@ -15,6 +15,8 @@ User * UsersListRemove(List * list, char * name);
 User * FriendsListRemove(List * list, char * name);
 User * FriendsSuggestionListRemove(List * list, char * name);
 
+void PrintUsersList(List * list);
+
 void FreeUsersList(List * list);
 void FreeFriendsList(List * list);
 void FreeFriendsSuggestionList(List * list);

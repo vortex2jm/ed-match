@@ -2,6 +2,7 @@
 #include "../include/usersList.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 // callback
 static int compare_user(void * user, void * key){
@@ -10,6 +11,11 @@ static int compare_user(void * user, void * key){
 
   return strcmp(GetUserName(user), name) == 0;
 }
+static void print_user(void * user){
+  printf("%s\n", GetUserName(user));
+  printf("%d anos\n", GetUserAge(user));
+} 
+
 
 // As funções abaixo serão chamadas dentro de outras funções com nomes diferentes para fins didáticos
 List * CreateUsersList(){
@@ -23,6 +29,9 @@ User * UsersListRemove(List * list, char * name){
 }
 void FreeUsersList(List * list){
   DestructList(list);
+}
+void PrintUsersList(List * list){
+  PrintList(list, print_user);
 }
 
 
