@@ -7,7 +7,7 @@ Hobbie * HobbieConstructor(char * name);
 
 void SetHobbie(Hobbie * hobbie, char * hobbieName);
 
-char * Gethobbie(Hobbie * hobbie);
+char * GetHobbie(Hobbie * hobbie);
 
 void FreeHobbie(Hobbie * hobbie);
 

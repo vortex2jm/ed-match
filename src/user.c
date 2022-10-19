@@ -32,3 +32,11 @@ char * GetUserName(User * user){
 int GetUserAge(User * user){
   return user->age;
 }
+
+char * GetUserLocation(User * user){
+  return user->location;
+}
+
+List * GetUserHobbiesList(User * user){
+  return user->hobbiesList;
+}

@@ -1,5 +1,6 @@
 #include "../include/list.h"
 #include "../include/usersList.h"
+#include "../include/hobbiesList.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -14,6 +15,8 @@ static int compare_user(void * user, void * key){
 static void print_user(void * user){
   printf("%s\n", GetUserName(user));
   printf("%d anos\n", GetUserAge(user));
+  printf("%s\n", GetUserLocation(user));
+  PrintHobbiesList(GetUserHobbiesList(user));
 } 
 
 

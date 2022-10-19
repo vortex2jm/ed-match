@@ -14,7 +14,7 @@ Hobbie * HobbieConstructor(char * name){
   return hobbie;
 }
 
-char * Gethobbie(Hobbie * hobbie){
+char * GetHobbie(Hobbie * hobbie){
   return hobbie->name;
 }
 

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "../include/hobbiesList.h"
 
 // callback
@@ -7,8 +8,11 @@ static int compare_hobbie(void * hobbie, void * key){
   char name[50];
   strcpy(name, key); 
 
-  return strcmp(Gethobbie(hobbie), name) == 0;
+  return strcmp(GetHobbie(hobbie), name) == 0;
 }
+static void print_hobbie(void * hobbie){
+  printf("%s\n", GetHobbie(hobbie));
+} 
 
 
 List * CreateHobbiesList(){
@@ -21,6 +25,10 @@ List * PushHobbiesList(List * list, Hobbie * hobbie){
 
 Hobbie * HobbiesListRemove(List * list, char * name){
   return ListRemove(list, compare_hobbie, name);
+}
+
+void PrintHobbiesList(List * list){
+  return PrintList(list, print_hobbie);
 }
 
 void FreeHobbiesList(List * list){

@@ -9,6 +9,8 @@ List * PushHobbiesList(List * list, Hobbie * hobbie);
 
 Hobbie * HobbiesListRemove(List * list, char * name);
 
+void PrintHobbiesList(List * list);
+
 void FreeHobbiesList(List * list);
 
 #endif

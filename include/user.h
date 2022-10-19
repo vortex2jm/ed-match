@@ -12,6 +12,10 @@ char * GetUserName(User * user);
 
 int GetUserAge(User * user);
 
+char * GetUserLocation(User * user);
+
+List * GetUserHobbiesList(User * user);
+
 // Adiciona ou remove um amigo da lista de amigos (A flag indica qual operação será realizada)
 User * UpdateUserFriendsList(User * user, User * friend, int addOrRemoveFlag);
 
