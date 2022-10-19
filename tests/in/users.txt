@@ -1,4 +1,4 @@
-Joao;23;Vitoria-ES;<lista de hobbies>
-Afonso;19;Vitoria-ES;<lista de hobbies>
-Caio;20;Vitoria-ES;<lista de hobbies>
-Kevin;21;DomingosMartins-ES;<lista de hobbies>
+Joao;23;Vitoria-ES;bike, carrp
+Afonso;19;Vitoria-ES;esqueca, pc
+Caio;20;Vitoria-ES;carro
+Kevin;21;DomingosMartins-ES;academia e paraquedas
