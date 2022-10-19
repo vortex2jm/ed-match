@@ -66,3 +66,18 @@ User * FriendsSuggestionListRemove(List * list, char * name){
 void FreeFriendsSuggestionList(List * list){
   FreeUsersList(list);
 }
+
+
+// Lista de likes
+List * CreateLikesList(){
+  return CreateUsersList();
+}
+List * PushLikesList(List * list, User * user){
+  return PushUsersList(list, user);
+}
+User * LikesListRemove(List * list, char * name){
+  return UsersListRemove(list, name);
+}
+void FreeLikesList(List * list){
+  FreeUsersList(list);
+}

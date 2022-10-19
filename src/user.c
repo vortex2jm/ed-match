@@ -7,10 +7,11 @@ struct user {
   int friendsAmount;
   char * name;
   char * location;
-  List * friendsPostsList;
-  List * ownPostsList;
+  List * likesList;
   List * hobbiesList; 
   List * friendsList;
+  List * ownPostsList;
+  List * friendsPostsList;
   List * friendsSuggestionList;
 };
 
