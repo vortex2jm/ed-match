@@ -30,9 +30,9 @@ int PackagesNumber(char ** argv){
 
 List * LoadUsers(char * fileWay){
 
-  FILE * usersFile = fopen(fileWay, "w");
+  FILE * usersFile = fopen(fileWay, "r");
 
-  int age;
+  int age = 0;
   char name[50], location[50], hobbies[500];
 
   List * usersList = CreateVoidList();
@@ -41,11 +41,13 @@ List * LoadUsers(char * fileWay){
 
   while(!feof(usersFile)){
     fscanf(usersFile,"%[^;];%d;%[^;];%[^\n]\n", name, &age, location, hobbies);
-    
+
     hobbiesList = LoadHobbies(hobbies);
     user = UserConstructor(name, age, location, hobbiesList);
     PushUsersList(usersList, user);
   }
+
+  fclose(usersFile);
 
   return usersList;
 }
