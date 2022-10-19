@@ -17,8 +17,9 @@ List * ProcessPackages(List * usersList, char * allUsersFile,
 List * LoadHobbies(char * hobbies);
 int LinesNumber(FILE * file);
 char ** CreateNamesList(FILE * usersFile, int rowsNumber);
+void FreeNamesList(char ** list, int amount);
 
-// ======================================================================== //
+//=====================================================================================//
 void StartValidator(int argc){
   if(argc <= 1){
     printf("Escolha o numero de leituras do package!\n");
@@ -26,12 +27,14 @@ void StartValidator(int argc){
   }
 }
 
+//=====================================================================================//
 int PackagesNumber(char ** argv){
   int number;
   sscanf(argv[1],"%d",&number);
   return number;
 }
 
+//=====================================================================================//
 List * LoadUsers(char * fileWay){
 
   FILE * usersFile = fopen(fileWay, "r");
@@ -56,6 +59,7 @@ List * LoadUsers(char * fileWay){
   return usersList;
 }
 
+//=====================================================================================//
 List * LoadHobbies(char * hobbies){
 
   List * hobbiesList = CreateHobbiesList();
@@ -72,44 +76,40 @@ List * LoadHobbies(char * hobbies){
   return hobbiesList;
 }
 
+//=====================================================================================//
 List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, int packageNumber){
          
   char singleUserFileWay[50];
   FILE * usersFile = fopen(allUsersFile,"r");
-  
-  // calculando a quantidade de usuarios (que eh igual a quantidade de linhas)
+
   int rowsNumber = LinesNumber(usersFile);
-  // movendo o ponteiro para o inicio do arquivo
   fseek(usersFile,0,SEEK_SET);
 
-  // alocando memoria para os nomes
-  char ** usersName = CreateNamesList(usersFile, rowsNumber);
+  char ** usersNames = CreateNamesList(usersFile, rowsNumber);
 
   FILE * singleUserfile;
+  char like[50], unlike[50], hobbieChange[100], post[500];
+
   for(int x=0;x<packageNumber;x++){
     for(int y=0;y<rowsNumber;y++){
-      sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersName[y]);
-      singleUserfile = fopen(singleUserFileWay,"a");
+      sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersNames[y]);
+      singleUserfile = fopen(singleUserFileWay,"r");
       
-      fprintf(singleUserfile,"oi");
 
-      // Leitura dos pacotes
 
+      // leitura dos pacotes
+      // criar lista de likes
+      // criar função que retorna um elemento da lista por busca
 
       fclose(singleUserfile);
     }
   }
 
-
-  // liberando memoria do array de nomes
-  // for(int x=0;x<rowsNumber;x++){
-  //   free(usersName[x]);
-  // }
-  // free(usersName);
-
+  FreeNamesList(usersNames, rowsNumber);
   fclose(usersFile);  
 }
 
+//=====================================================================================//
 int LinesNumber(FILE * file){
   int n=0;
   char c;
@@ -121,6 +121,7 @@ int LinesNumber(FILE * file){
   return n+1; 
 }
 
+//=====================================================================================//
 char ** CreateNamesList(FILE * usersFile, int rowsNumber){
 
   char name[50];
@@ -138,4 +139,15 @@ char ** CreateNamesList(FILE * usersFile, int rowsNumber){
   }
 
   return usersName;
+}
+
+//=====================================================================================//
+void FreeNamesList(char ** list, int amount){
+  if(!list)return; 
+
+  // liberando memoria do array de nomes
+  for(int x=0;x<amount;x++){
+    free(list[x]);
+  }
+  free(list);
 }
