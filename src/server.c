@@ -16,7 +16,7 @@ List * ProcessPackages(List * usersList, char * allUsersFile,
 // Private functions
 List * LoadHobbies(char * hobbies);
 int LinesNumber(FILE * file);
-
+char ** CreateNamesList(FILE * usersFile, int rowsNumber);
 
 // ======================================================================== //
 void StartValidator(int argc){
@@ -74,44 +74,38 @@ List * LoadHobbies(char * hobbies){
 
 List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, int packageNumber){
          
-  char name[50];
   char singleUserFileWay[50];
   FILE * usersFile = fopen(allUsersFile,"r");
   
   // calculando a quantidade de usuarios (que eh igual a quantidade de linhas)
-  int linesNumber = LinesNumber(usersFile);
+  int rowsNumber = LinesNumber(usersFile);
   // movendo o ponteiro para o inicio do arquivo
   fseek(usersFile,0,SEEK_SET);
 
   // alocando memoria para os nomes
-  char ** usersName = malloc(sizeof(char*) * linesNumber);
-  for(int x=0;x<linesNumber;x++){
-    usersName[x] = malloc(sizeof(char) * 50);
-  }
-
-  int index=0;
-  while(!feof(usersFile)){
-    fscanf(usersFile,"%[^;]%*[^\n]\n",name);
-    usersName[index] = strdup(name);
-    index++;
-  }
-
+  char ** usersName = CreateNamesList(usersFile, rowsNumber);
 
   FILE * singleUserfile;
   for(int x=0;x<packageNumber;x++){
-    for(int y=0;y<linesNumber;y++){
+    for(int y=0;y<rowsNumber;y++){
       sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersName[y]);
       singleUserfile = fopen(singleUserFileWay,"a");
+      
       fprintf(singleUserfile,"oi");
+
+      // Leitura dos pacotes
+
+
+      fclose(singleUserfile);
     }
   }
 
 
   // liberando memoria do array de nomes
-  for(int x=0;x<linesNumber;x++){
-    free(usersName[x]);
-  }
-  free(usersName);
+  // for(int x=0;x<rowsNumber;x++){
+  //   free(usersName[x]);
+  // }
+  // free(usersName);
 
   fclose(usersFile);  
 }
@@ -125,4 +119,23 @@ int LinesNumber(FILE * file){
       n++;
   }
   return n+1; 
+}
+
+char ** CreateNamesList(FILE * usersFile, int rowsNumber){
+
+  char name[50];
+
+  char ** usersName = malloc(sizeof(char*) * rowsNumber);
+  for(int x=0;x<rowsNumber;x++){
+    usersName[x] = malloc(sizeof(char) * 50);
+  }
+
+  int index=0;
+  while(!feof(usersFile)){
+    fscanf(usersFile,"%[^;]%*[^\n]\n",name);
+    usersName[index] = strdup(name);
+    index++;
+  }
+
+  return usersName;
 }
