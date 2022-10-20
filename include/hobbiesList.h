@@ -11,6 +11,8 @@ Hobbie * HobbiesListRemove(List * list, char * name);
 
 void PrintHobbiesList(List * list);
 
+void PrintHobbiesListIntoFile(List * list, FILE * file);
+
 void FreeHobbiesList(List * list);
 
 #endif

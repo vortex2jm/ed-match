@@ -33,6 +33,14 @@ void PrintHobbie(Hobbie * hobbie){
   printf("%s\n", hobbie->name);
 }
 
+void PrintHobbieF(Hobbie * hobbie, FILE * file){
+  if(!hobbie){
+    printf("Hobbie vazio!\n");
+    return;
+  }
+  fprintf(file, "~ %s\n", hobbie->name);
+}
+
 void FreeHobbie(Hobbie * hobbie){
   if(hobbie){
     if(hobbie->name)

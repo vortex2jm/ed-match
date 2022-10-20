@@ -13,7 +13,7 @@ void StartValidator(int argc);
 int PackagesNumber(char ** argv);
 List * LoadUsers(char * fileWay);
 List * ProcessPackages(List * usersList, char * allUsersFile,
-                       char * singleUserFile, int packageNumber);
+                       char * singleUserFile, char * logsFileDir, int packageNumber);
 
 // Private functions
 List * LoadHobbies(char * hobbies);
@@ -21,11 +21,11 @@ int LinesNumber(FILE * file);
 char ** CreateNamesList(FILE * usersFile, int usersNumber);
 void FreeNamesList(char ** list, int amount);
 void StorePackages(List * usersList, int usersNumber, char * singleUserFileDir, char ** usersNames, int packageNumber);
-void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber);
-void LikesProcessor(User * user, List * usersList, char * like);
-void UnlikesProcessor(User * user, List * usersList, char * unlike);
-void HobbieChangesProcessor(User * user, char * hobbieChange);
-void PostProcessor(User * user,List * usersList, char * post);
+void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber,char * logsFileDir);
+void LikesProcessor(User * user, List * usersList, char * like, FILE * logsFile);
+void UnlikesProcessor(User * user, List * usersList, char * unlike, FILE * logsFile);
+void HobbieChangesProcessor(User * user, char * hobbieChange, FILE * logsFile);
+void PostProcessor(User * user,List * usersList, char * post, FILE * logsFile);
 void ProcessFriendsSuggestions(List * usersList, char ** usersNames, int usersNumber);
 
 //=====================================================================================//
@@ -86,7 +86,7 @@ List * LoadHobbies(char * hobbies){
 }
 
 //=====================================================================================//
-List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, int packageNumber){
+List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, char * logsFileDir, int packageNumber){
   
   FILE * usersFile = fopen(allUsersFile,"r");
 
@@ -97,7 +97,7 @@ List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserF
   fclose(usersFile);
 
   StorePackages(usersList, usersNumber, singleUserFileDir, usersNames, packageNumber);
-  ExecutePackages(usersList, usersNames, packageNumber, usersNumber);
+  ExecutePackages(usersList, usersNames, packageNumber, usersNumber, logsFileDir);
   ProcessFriendsSuggestions(usersList, usersNames, usersNumber);
 
   FreeNamesList(usersNames, usersNumber);  
@@ -175,10 +175,12 @@ void StorePackages(List * usersList, int usersNumber, char * singleUserFileDir, 
 }
 
 //=====================================================================================//
-void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber){
+void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber, char * logsFileDir){
 
   User * user;
   Package ** packageArray, *package;
+
+  FILE * logsFile = fopen(logsFileDir,"w");
 
   for(int x=0; x<packageNumber;x++){
     for(int y=0;y<usersNumber;y++){
@@ -188,21 +190,23 @@ void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, in
       packageArray = GetPackage(user);
       package = packageArray[x];
 
-      LikesProcessor(user, usersList, GetLike(package));
-      UnlikesProcessor(user, usersList,GetUnlike(package));
-      HobbieChangesProcessor(user, GetHobbieChange(package));
-      PostProcessor(user, usersList, GetPost(package));
+      LikesProcessor(user, usersList, GetLike(package), logsFile);
+      UnlikesProcessor(user, usersList,GetUnlike(package), logsFile);
+      HobbieChangesProcessor(user, GetHobbieChange(package), logsFile);
+      PostProcessor(user, usersList, GetPost(package), logsFile);
     }
   }
 
-  // Processar as sugestões de amizade...
+  fclose(logsFile);
 }
 
 //=====================================================================================//
-void LikesProcessor(User * user, List * usersList, char * like){
+void LikesProcessor(User * user, List * usersList, char * like, FILE * logsFile){
 
   if(!strcmp(like,"."))
     return;
+
+  fprintf(logsFile,"+ %s curtiu %s\n", GetUserName(user), like);
 
   // Caso o outro usuario já o tenha curtido (viram amigos)
   if(GetUser(GetLikesList(user),like)){
@@ -216,6 +220,7 @@ void LikesProcessor(User * user, List * usersList, char * like){
     SetFriendsAmount(user,1);
     // SetAllPostsReach(GetOwnPostsList(user), 1); 
 
+    fprintf(logsFile,"# %s e %s viraram amigos\n", GetUserName(user), like);
     return;
   }
 
@@ -225,10 +230,12 @@ void LikesProcessor(User * user, List * usersList, char * like){
 }
 
 //=====================================================================================//
-void UnlikesProcessor(User * user, List * usersList, char * unlike){
+void UnlikesProcessor(User * user, List * usersList, char * unlike, FILE * logsFile){
 
   if(!strcmp(unlike,"."))
     return;
+
+  fprintf(logsFile,"_ %s descurtiu %s\n", GetUserName(user), unlike);
 
   User * unlikedUser = GetUser(usersList, unlike);
   // caso sejam amigos, retira da lista de amigos
@@ -241,13 +248,15 @@ void UnlikesProcessor(User * user, List * usersList, char * unlike){
     FriendsListRemove(GetFriendsList(unlikedUser), GetUserName(user));
     SetFriendsAmount(unlikedUser, -1);
     // SetAllPostsReach(GetOwnPostsList(unlikedUser), -1);
+
+    fprintf(logsFile,"$ %s desfez amizade com %s\n", GetUserName(user), unlike);
   }
   // retira o usuario da lista de likes do unlikedUser
   LikesListRemove(GetLikesList(unlikedUser), GetUserName(user));
 }
 
 //=====================================================================================//
-void HobbieChangesProcessor(User * user, char * hobbieChange){
+void HobbieChangesProcessor(User * user, char * hobbieChange, FILE * logsFile){
 
   if(!strcmp(hobbieChange,"."))
     return;
@@ -257,10 +266,13 @@ void HobbieChangesProcessor(User * user, char * hobbieChange){
 
   List * newHobbiesList = LoadHobbies(hobbieChange);
   SetHobbiesList(user, newHobbiesList);
+
+  fprintf(logsFile,"! %s mudou seu hobbie para:\n", GetUserName(user));
+  PrintHobbiesListIntoFile(GetHobbiesList(user), logsFile);
 }
 
 //=====================================================================================//
-void PostProcessor(User * user,List * usersList, char * post){
+void PostProcessor(User * user,List * usersList, char * post, FILE * logsFile){
 
   if(!strcmp(post,"."))
     return;
@@ -269,6 +281,8 @@ void PostProcessor(User * user,List * usersList, char * post){
   Post * newPost = PostConstructor(GetUserName(user), post, GetFriendsAmount(user));
   PushPostsList(GetOwnPostsList(user), newPost);
   UpdateFriendsPostsList(GetFriendsList(user), newPost);
+
+  fprintf(logsFile,"* %s publicou:\n-> %s\n", GetUserName(user), post);
 }
 
 //=====================================================================================//

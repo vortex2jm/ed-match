@@ -9,7 +9,7 @@ int PackagesNumber(char ** argv);
 List * LoadUsers(char * fileWay);
 
 List * ProcessPackages(List * usersList, char * allUsersFile,
-   char * singleUserFile, int packageNumber);
+   char * singleUserFile, char * logsFileDir, int packageNumber);
 
 void GenerateReports(List * usersList);
 

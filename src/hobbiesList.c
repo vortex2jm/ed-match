@@ -12,6 +12,9 @@ static int compare_hobbie(void * hobbie, void * key){
 }
 static void print_hobbie(void * hobbie){
   PrintHobbie(hobbie);
+}
+static void print_hobbie_into_file(void * hobbie, void * file){
+  PrintHobbieF(hobbie, file);
 } 
 
 //========================================================//
@@ -28,7 +31,11 @@ Hobbie * HobbiesListRemove(List * list, char * name){
 }
 
 void PrintHobbiesList(List * list){
-  return PrintList(list, print_hobbie);
+  PrintList(list, print_hobbie);
+}
+
+void PrintHobbiesListIntoFile(List * list, FILE * file){
+  GoThroughList(list, print_hobbie_into_file, file);
 }
 
 void FreeHobbiesList(List * list){
