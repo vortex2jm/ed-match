@@ -20,6 +20,12 @@ static void print_user(void * user){
 } 
 
 
+// Usada em todos os tipos de lista
+User * GetUser(List * list, char * name){
+  return GetElement(list, compare_user, name);
+}
+
+
 // As funções abaixo serão chamadas dentro de outras funções com nomes diferentes para fins didáticos
 List * CreateUsersList(){
   return CreateVoidList();
@@ -35,9 +41,6 @@ void FreeUsersList(List * list){
 }
 void PrintUsersList(List * list){
   PrintList(list, print_user);
-}
-User * GetUser(List * list, char * name){
-  return GetElement(list, compare_user, name);
 }
 
 
