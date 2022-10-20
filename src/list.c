@@ -127,7 +127,7 @@ void * GetElement(List * list, list_compare get_callback, void * key){
 }
 
 //=================================================================//
-void SetAllList(List * list, set_something set_callback, void * value){
+void GoThroughList(List * list, pass_something pass_callback, void * value){
     if(!list){
         printf("lista nula!\n");
         return;
@@ -135,7 +135,7 @@ void SetAllList(List * list, set_something set_callback, void * value){
 
     Cell * current = list->first;
     while(current){
-        set_callback(current->element, *((int*)value));
+        pass_callback(current->element, value);
         current = current->next;
     }
 }
