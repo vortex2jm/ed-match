@@ -46,3 +46,10 @@ void FreePackage(Package * package){
     free(package);
   }
 }
+
+void PrintPackage(Package * package){
+  printf("%s\n",package->like);
+  printf("%s\n",package->unlike);
+  printf("%s\n",package->hobbieChange);
+  printf("%s\n",package->post);
+}
