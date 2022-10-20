@@ -125,3 +125,17 @@ void * GetElement(List * list, list_compare get_callback, void * key){
     }
     return NULL;
 }
+
+//=================================================================//
+void SetAllList(List * list, set_something set_callback, void * value){
+    if(!list){
+        printf("lista nula!\n");
+        return;
+    }
+
+    Cell * current = list->first;
+    while(current){
+        set_callback(current->element, *((int*)value));
+        current = current->next;
+    }
+}
