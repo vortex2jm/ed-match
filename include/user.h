@@ -43,4 +43,8 @@ List * GetOwnPostsList(User * user);
 
 List * GetFriendsPostsList(User * user);
 
+int ProcessUsersCompatibility(User * user1, User * user2);
+
+List * GetFriendsSuggestionsList(User * user);
+
 #endif

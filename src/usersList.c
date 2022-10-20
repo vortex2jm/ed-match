@@ -27,6 +27,15 @@ static void print_partial_user(void * user){
   PrintPartialUser(user);
 }
 
+static void process_compatibility(void * listUser, void * outUser){
+  if(ProcessUsersCompatibility(listUser, outUser) && 
+    strcmp(GetUserName(listUser), GetUserName(outUser)) &&
+    !GetUser(GetFriendsList(outUser), GetUserName(listUser))){
+
+    PushFriendsSuggestionList(GetFriendsSuggestionsList(outUser), listUser);
+  }
+}
+
 //=================================================================//
 
 // Usada em todos os tipos de lista
@@ -50,6 +59,9 @@ void FreeUsersList(List * list){
 }
 void PrintUsersList(List * list){
   PrintList(list, print_user);
+}
+void GenerateFriendsSuggestions(List * list, User * user){
+  GoThroughList(list, process_compatibility, user);
 }
 
 

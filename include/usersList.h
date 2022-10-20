@@ -31,5 +31,6 @@ void FreeLikesList(List * list);
 User * GetUser(List * list, char * name);
 
 void UpdateFriendsPostsList(List * list, Post * post);
+void GenerateFriendsSuggestions(List * list, User * user);
 
 #endif

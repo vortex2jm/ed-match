@@ -26,6 +26,7 @@ void LikesProcessor(User * user, List * usersList, char * like);
 void UnlikesProcessor(User * user, List * usersList, char * unlike);
 void HobbieChangesProcessor(User * user, char * hobbieChange);
 void PostProcessor(User * user,List * usersList, char * post);
+void ProcessFriendsSuggestions(List * usersList, char ** usersNames, int usersNumber);
 
 //=====================================================================================//
 void StartValidator(int argc){
@@ -97,6 +98,7 @@ List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserF
 
   StorePackages(usersList, usersNumber, singleUserFileDir, usersNames, packageNumber);
   ExecutePackages(usersList, usersNames, packageNumber, usersNumber);
+  ProcessFriendsSuggestions(usersList, usersNames, usersNumber);
 
   FreeNamesList(usersNames, usersNumber);  
 }
@@ -270,8 +272,12 @@ void PostProcessor(User * user,List * usersList, char * post){
 }
 
 //=====================================================================================//
-void ProcessFriendsSuggestions(List * usersList){
-
+void ProcessFriendsSuggestions(List * usersList, char ** usersNames, int usersNumber){
+  User * user;
+  for(int x=0; x<usersNumber;x++){
+    user = GetUser(usersList, usersNames[x]);
+    GenerateFriendsSuggestions(usersList, user);
+  }
 }
 
 //=====================================================================================//

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 #include "../include/user.h"
 #include "../include/usersList.h"
 #include "../include/postsList.h"
@@ -90,6 +91,10 @@ List * GetFriendsPostsList(User * user){
   return user->friendsPostsList;
 }
 
+List * GetFriendsSuggestionsList(User * user){
+  return user->friendsSuggestionList;
+}
+
 void PrintFullUser(User * user){
   printf("\n====USUÁRIO=====================================//\n");
   printf("%s\n%d\n%s\n", user->name, user->age, user->location);
@@ -107,9 +112,20 @@ void PrintFullUser(User * user){
 
   printf("===MATCHES===\n");
   PrintFriendsList(user->friendsList);
+
+  printf("===SUGESTOES DE AMIZADE===\n");
+  PrintFriendsSuggestionList(user->friendsSuggestionList);
 }
 
 // precisei fazer esta função para evitar recursão infinita
 void PrintPartialUser(User * user){
   printf("%s\n",user->name);
+}
+
+int ProcessUsersCompatibility(User * user1, User * user2){
+  
+  int ageDiff = abs(user1->age - user2->age);
+  int sameLocation = !strcmp(user1->location, user2->location);
+
+  return (ageDiff<=5 && sameLocation);
 }
