@@ -11,10 +11,10 @@ static int compare_hobbie(void * hobbie, void * key){
   return strcmp(GetHobbie(hobbie), name) == 0;
 }
 static void print_hobbie(void * hobbie){
-  printf("%s\n", GetHobbie(hobbie));
+  PrintHobbie(hobbie);
 } 
 
-
+//========================================================//
 List * CreateHobbiesList(){
   return CreateVoidList();
 }

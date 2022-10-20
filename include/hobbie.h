@@ -9,6 +9,8 @@ void SetHobbie(Hobbie * hobbie, char * hobbieName);
 
 char * GetHobbie(Hobbie * hobbie);
 
+void PrintHobbie(Hobbie * hobbie);
+
 void FreeHobbie(Hobbie * hobbie);
 
 #endif

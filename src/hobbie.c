@@ -24,6 +24,14 @@ void SetHobbie(Hobbie * hobbie, char * hobbieName){
   hobbie->name = strdup(hobbieName);
 }
 
+void PrintHobbie(Hobbie * hobbie){
+  if(!hobbie){
+    printf("Hobbie vazio!\n");
+    return;
+  }
+  printf("%s\n", hobbie->name);
+}
+
 void FreeHobbie(Hobbie * hobbie){
   if(hobbie){
     if(hobbie->name)
