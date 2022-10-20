@@ -5,6 +5,8 @@
 #include "../include/user.h"
 #include "../include/hobbiesList.h"
 #include "../include/hobbie.h"
+#include "../include/post.h"
+#include "../include/postsList.h"
 
 // Public functions
 void StartValidator(int argc);
@@ -21,6 +23,9 @@ void FreeNamesList(char ** list, int amount);
 void StorePackages(List * usersList, int usersNumber, char * singleUserFileDir, char ** usersNames, int packageNumber);
 void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber);
 void LikesProcessor(User * user, List * usersList, char * like);
+void UnlikesProcessor(User * user, List * usersList, char * unlike);
+void HobbieChangesProcessor(User * user, char * hobbieChange);
+void PostProcessor(User * user,List * usersList, char * post);
 
 //=====================================================================================//
 void StartValidator(int argc){
@@ -182,11 +187,11 @@ void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, in
 
       packageArray = GetPackage(user);
       package = packageArray[x];
-      
-      // PrintPackage(package);
 
-      // LikesProcessor(user, usersList, GetLike(package));
-
+      LikesProcessor(user, usersList, GetLike(package));
+      UnlikesProcessor(user, usersList,GetUnlike(package));
+      HobbieChangesProcessor(user, GetHobbieChange(package));
+      PostProcessor(user, usersList, GetPost(package));
     }
   }
 }
@@ -196,6 +201,71 @@ void LikesProcessor(User * user, List * usersList, char * like){
 
   if(!strcmp(like,"."))
     return;
-
   printf("LIKE = %s\n", like);
+
+  // Caso o outro usuario já o tenha curtido (viram amigos)
+  if(GetUser(GetLikesList(user),like)){
+    User * likedUser = GetUser(usersList, like);
+    
+    PushFriendsList(GetFriendsList(likedUser), user);
+    SetFriendsAmount(likedUser,1);
+    SetAllPostsReach(GetOwnPostsList(likedUser), 1); 
+
+    PushFriendsList(GetFriendsList(user), likedUser);
+    SetFriendsAmount(user,1);
+    SetAllPostsReach(GetOwnPostsList(user), 1); 
+
+    return;
+  }
+
+  // Caso nao tenha curtido(Adiciona na lista de likes)
+  User * likedUser = GetUser(usersList, like);
+  PushLikesList(GetLikesList(likedUser), user);
+}
+
+//=====================================================================================//
+void UnlikesProcessor(User * user, List * usersList, char * unlike){
+
+  if(!strcmp(unlike,"."))
+    return;
+
+  User * unlikedUser = GetUser(usersList, unlike);
+  // caso sejam amigos, retira da lista de amigos
+  if(GetUser(GetFriendsList(user), unlike)){
+
+    FriendsListRemove(GetFriendsList(user), unlike);
+    SetFriendsAmount(user, -1);
+    SetAllPostsReach(GetOwnPostsList(user), -1);
+
+    FriendsListRemove(GetFriendsList(unlikedUser), GetUserName(user));
+    SetFriendsAmount(unlikedUser, -1);
+    SetAllPostsReach(GetOwnPostsList(unlikedUser), -1);
+  }
+  // retira o usuario da lista de likes do unlikedUser
+  LikesListRemove(GetLikesList(unlikedUser), GetUserName(user));
+}
+
+//=====================================================================================//
+void HobbieChangesProcessor(User * user, char * hobbieChange){
+
+  if(!strcmp(hobbieChange,"."))
+    return;
+
+  List * oldHobbiesList = GetHobbiesList(user);
+  FreeHobbiesList(oldHobbiesList);
+
+  List * newHobbiesList = LoadHobbies(hobbieChange);
+  SetHobbiesList(user, newHobbiesList);
+}
+
+//=====================================================================================//
+void PostProcessor(User * user,List * usersList, char * post){
+
+  if(!strcmp(post,"."))
+    return;
+  
+  // Adicionando o post na propria lista de posts
+  Post * newPost = PostConstructor(GetUserName(user), post, GetFriendsAmount(user));
+  PushPostsList(GetOwnPostsList(user), newPost);
+  UpdateFriendsPostsList(GetFriendsPostsList(user), newPost);
 }
