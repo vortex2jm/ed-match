@@ -7,7 +7,7 @@ Package * PackageConstructor();
 
 char * GetLike(Package * package);
 
-char * GetUnlik(Package * package);
+char * GetUnlike(Package * package);
 
 char * GetHobbieChange(Package* package);
 

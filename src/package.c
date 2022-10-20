@@ -25,7 +25,7 @@ char * GetLike(Package * package){
   return package->like;
 }
 
-char * GetUnlik(Package * package){
+char * GetUnlike(Package * package){
   return package->unlike;
 }
 
