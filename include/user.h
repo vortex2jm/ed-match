@@ -1,6 +1,7 @@
 #ifndef user_h
 #define user_h
 #include "list.h"
+#include "package.h"
 
 typedef struct user User;
 
@@ -24,5 +25,9 @@ void PrintUser(User * user);
 
 // Libera o espaço de memória alocado para o usuário
 void DeleteUser(User * user);
+
+void SetPackage(User * user, Package ** package);
+
+Package ** GetPackage(User * user);
 
 #endif

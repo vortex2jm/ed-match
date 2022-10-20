@@ -13,6 +13,7 @@ struct user {
   List * ownPostsList;
   List * friendsPostsList;
   List * friendsSuggestionList;
+  Package ** package;
 };
 
 User * UserConstructor(char * name, int age, char * location, List * hobbies){
@@ -40,4 +41,12 @@ char * GetUserLocation(User * user){
 
 List * GetUserHobbiesList(User * user){
   return user->hobbiesList;
+}
+
+void SetPackage(User * user, Package ** package){
+  user->package = package;
+}
+
+Package ** GetPackage(User * user){
+  return user->package;
 }

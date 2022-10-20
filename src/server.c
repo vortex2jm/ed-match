@@ -16,8 +16,11 @@ List * ProcessPackages(List * usersList, char * allUsersFile,
 // Private functions
 List * LoadHobbies(char * hobbies);
 int LinesNumber(FILE * file);
-char ** CreateNamesList(FILE * usersFile, int rowsNumber);
+char ** CreateNamesList(FILE * usersFile, int usersNumber);
 void FreeNamesList(char ** list, int amount);
+void LikesProcessor(User * user, List * usersList, char * like);
+void StorePackages(List * usersList, int usersNumber, char * singleUserFileDir, char ** usersNames, int packageNumber);
+void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber);
 
 //=====================================================================================//
 void StartValidator(int argc){
@@ -78,35 +81,19 @@ List * LoadHobbies(char * hobbies){
 
 //=====================================================================================//
 List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, int packageNumber){
-         
-  char singleUserFileWay[50];
+  
   FILE * usersFile = fopen(allUsersFile,"r");
 
-  int rowsNumber = LinesNumber(usersFile);
+  int usersNumber = LinesNumber(usersFile);
   fseek(usersFile,0,SEEK_SET);
+  char ** usersNames = CreateNamesList(usersFile, usersNumber);
 
-  char ** usersNames = CreateNamesList(usersFile, rowsNumber);
+  fclose(usersFile);
 
-  FILE * singleUserfile;
-  char like[50], unlike[50], hobbieChange[100], post[500];
+  StorePackages(usersList, usersNumber, singleUserFileDir, usersNames, packageNumber);
+  ExecutePackages(usersList, usersNames, packageNumber, usersNumber);
 
-  for(int x=0;x<packageNumber;x++){
-    for(int y=0;y<rowsNumber;y++){
-      sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersNames[y]);
-      singleUserfile = fopen(singleUserFileWay,"r");
-      
-
-
-      // leitura dos pacotes
-      // criar lista de likes
-      // criar função que retorna um elemento da lista por busca
-
-      fclose(singleUserfile);
-    }
-  }
-
-  FreeNamesList(usersNames, rowsNumber);
-  fclose(usersFile);  
+  FreeNamesList(usersNames, usersNumber);  
 }
 
 //=====================================================================================//
@@ -122,12 +109,12 @@ int LinesNumber(FILE * file){
 }
 
 //=====================================================================================//
-char ** CreateNamesList(FILE * usersFile, int rowsNumber){
+char ** CreateNamesList(FILE * usersFile, int usersNumber){
 
   char name[50];
 
-  char ** usersName = malloc(sizeof(char*) * rowsNumber);
-  for(int x=0;x<rowsNumber;x++){
+  char ** usersName = malloc(sizeof(char*) * usersNumber);
+  for(int x=0;x<usersNumber;x++){
     usersName[x] = malloc(sizeof(char) * 50);
   }
 
@@ -151,3 +138,80 @@ void FreeNamesList(char ** list, int amount){
   }
   free(list);
 }
+
+//=====================================================================================//
+void LikesProcessor(User * user, List * usersList, char * like){
+
+  if(!strcmp(like,"."))
+    return;
+
+  printf("LIKE = %s\n", like);
+}
+
+
+void StorePackages(List * usersList, int usersNumber, char * singleUserFileDir, char ** usersNames, int packageNumber){
+
+  FILE * singleUserfile;
+  char like[50], unlike[50], hobbieChange[100], post[500], singleUserFileWay[50];
+  User * user;
+  Package * package, **packageArray;
+  packageArray = malloc(sizeof(Package*)*packageNumber);
+
+  // Lendo e armazenando pacotes
+  for(int x=0;x<usersNumber;x++){
+
+    sprintf(singleUserFileWay,"%s%s.package.txt", singleUserFileDir, usersNames[x]);
+    singleUserfile = fopen(singleUserFileWay,"r");
+
+    printf("=========\n\n");
+
+    for(int y=0;y<packageNumber;y++){
+      
+      fscanf(singleUserfile,"%[^;];%[^;];%[^;];%[^\n]\n",like, unlike, hobbieChange, post);
+      
+      package = PackageConstructor(like, unlike, hobbieChange, post);
+      packageArray[y] = package;
+
+      // printf("%s , %s , %s , %s\n", GetLike(package), GetUnlik(package), GetHobbieChange(package), GetPost(package));
+      // printf("%s , %s , %s , %s\n", like, unlike, hobbieChange, post);  
+    }
+
+    printf("USER NAME === %s\n", usersNames[x]);
+
+    user = GetUser(usersList, usersNames[x]); // 
+    // printf("USER = %s\n\n", GetUserName(user));
+    SetPackage(user, packageArray);
+
+
+    PrintPackage(GetPackage(user)[1]);
+
+
+    fclose(singleUserfile);
+  }
+}
+
+
+void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, int usersNumber){
+
+  User * user;
+  Package ** packageArray, *package;
+
+  user = GetUser(usersList, "Joao");
+  PrintPackage(GetPackage(user)[1]);
+  // for(int x=0; x<packageNumber;x++){
+
+  //   for(int y=0;y<usersNumber;y++){
+
+  //     user = GetUser(usersList, usersNames[y]);
+  //     printf("user = %s\n", GetUserName(user));
+
+  //     packageArray = GetPackage(user);
+  //     package = packageArray[0];
+      
+  //     // PrintPackage(package);
+
+  //     // LikesProcessor(user, usersList, GetLike(package));
+
+  //   }
+  // }
+} 

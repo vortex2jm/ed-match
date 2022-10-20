@@ -13,7 +13,7 @@ int main(int argc, char ** argv){
 
   List * users = LoadUsers(allUsersFile);
 
-  PrintUsersList(users);
+  // PrintUsersList(users);
 
   ProcessPackages(users,allUsersFile,userFile,packagesNumber);
 
