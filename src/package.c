@@ -48,6 +48,10 @@ void FreePackage(Package * package){
 }
 
 void PrintPackage(Package * package){
+  if(!package){
+    printf("Ainda nao há um pacote!\n");
+    return;
+  }
   printf("%s\n",package->like);
   printf("%s\n",package->unlike);
   printf("%s\n",package->hobbieChange);
