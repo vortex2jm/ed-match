@@ -11,4 +11,6 @@ Post * PostsListRemove(List * list, char * author);
 
 void FreePostsList(List * list);
 
+void SetAllPostsReach(List * list, int value);
+
 #endif

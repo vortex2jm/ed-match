@@ -26,3 +26,7 @@ Post * PostsListRemove(List * list, char * author){
 void FreePostsList(List * list){
   DestructList(list);
 }
+
+void SetAllPostsReach(List * list, int value){
+  SetAllList(list, SetPostReach, &value);
+}

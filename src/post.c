@@ -31,7 +31,7 @@ int GetPostReach(Post * post){
 }
 
 void SetPostReach(Post * post, int value){
-  post->reach= value;
+  post->reach += value;
 }
 
 void FreePost(Post * post){
