@@ -15,7 +15,13 @@ int GetUserAge(User * user);
 
 char * GetUserLocation(User * user);
 
-List * GetUserHobbiesList(User * user);
+int GetFriendsAmount(User * user);
+
+void SetFriendsAmount(User * user, int newFriendsAmount);
+
+List * GetHobbiesList(User * user);
+
+void SetHobbiesList(User * user, List * newHobbiesList);
 
 // Adiciona ou remove um amigo da lista de amigos (A flag indica qual operação será realizada)
 User * UpdateUserFriendsList(User * user, User * friend, int addOrRemoveFlag);
@@ -29,5 +35,9 @@ void DeleteUser(User * user);
 void SetPackage(User * user, Package ** package);
 
 Package ** GetPackage(User * user);
+
+List * GetLikesList(User * user);
+
+List * GetFriendsList(User * user);
 
 #endif

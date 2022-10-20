@@ -1,6 +1,8 @@
-#include "../include/user.h"
 #include <stdlib.h>
 #include <string.h>
+#include "../include/user.h"
+#include "../include/usersList.h"
+#include "../include/postsList.h"
 
 struct user {
   int age;
@@ -18,11 +20,18 @@ struct user {
 
 User * UserConstructor(char * name, int age, char * location, List * hobbies){
 
-  User * user = calloc(1,sizeof(User));
-  user->name = strdup(name);
-  user->location = strdup(location);
+  User * user = malloc(sizeof(User));
   user->age = age;
+  user->package = NULL;
+  user->friendsAmount = 0;
+  user->name = strdup(name);
   user->hobbiesList = hobbies;
+  user->location = strdup(location);
+  user->likesList = CreateLikesList();
+  user->friendsList = CreateFriendsList();
+  user->ownPostsList = CreatePostsList();
+  user->friendsPostsList = CreatePostsList();
+  user->friendsSuggestionList = CreateFriendsSuggestionList(); 
 
   return user;
 }
@@ -39,14 +48,34 @@ char * GetUserLocation(User * user){
   return user->location;
 }
 
-List * GetUserHobbiesList(User * user){
+int GetFriendsAmount(User * user){
+  return user->friendsAmount;
+}
+
+void SetFriendsAmount(User * user, int plusAmount){
+  user->friendsAmount += plusAmount;
+}
+
+List * GetHobbiesList(User * user){
   return user->hobbiesList;
+}
+
+void SetHobbiesList(User * user, List * newHobbiesList){
+  user->hobbiesList = newHobbiesList;
+}
+
+Package ** GetPackage(User * user){
+  return user->package;
 }
 
 void SetPackage(User * user, Package ** package){
   user->package = package;
 }
 
-Package ** GetPackage(User * user){
-  return user->package;
+List * GetLikesList(User * user){
+  return user->likesList;
+}
+
+List * GetFriendsList(User * user){
+  return user->friendsList;
 }
