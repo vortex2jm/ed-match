@@ -107,3 +107,21 @@ void DestructList(List * list){
         free(list);
     }
 }
+
+//=================================================================//
+void * GetElement(List * list, list_compare get_callback, void * key){
+    if(!list){
+        printf("Lista nula!\n");
+        return NULL;
+    } 
+
+    Cell * current = list->first;
+    while(current){
+
+        if(get_callback(current->element, key)){
+            return current->element;
+        }
+        current = current->next;
+    }
+    return NULL;
+}

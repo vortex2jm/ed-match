@@ -25,4 +25,6 @@ void FreeFriendsList(List * list);
 void FreeFriendsSuggestionList(List * list);
 void FreeLikesList(List * list);
 
+User * GetUser(List * list, char * name);
+
 #endif

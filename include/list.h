@@ -13,6 +13,8 @@ void PrintList(List * list, print_list print_callback);
 
 void * ListRemove(List * list, list_compare remove_callback, void * key);
 
+void * GetElement(List * list, list_compare get_callback, void * key);
+
 void DestructList(List * list);
 
 #endif

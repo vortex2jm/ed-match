@@ -36,6 +36,9 @@ void FreeUsersList(List * list){
 void PrintUsersList(List * list){
   PrintList(list, print_user);
 }
+User * GetUser(List * list, char * name){
+  return GetElement(list, compare_user, name);
+}
 
 
 // Lista de amigos
