@@ -2,6 +2,7 @@
 #define userslist_h
 #include "list.h"
 #include "user.h"
+#include "post.h"
 
 List * CreateUsersList();
 List * CreateFriendsList();
@@ -26,5 +27,7 @@ void FreeFriendsSuggestionList(List * list);
 void FreeLikesList(List * list);
 
 User * GetUser(List * list, char * name);
+
+void UpdateFriendsPostsList(List * list, Post * post);
 
 #endif

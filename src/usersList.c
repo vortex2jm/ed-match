@@ -1,6 +1,8 @@
 #include "../include/list.h"
 #include "../include/usersList.h"
 #include "../include/hobbiesList.h"
+#include "../include/post.h"
+#include "../include/postsList.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -16,9 +18,14 @@ static void print_user(void * user){
   printf("%s\n", GetUserName(user));
   printf("%d anos\n", GetUserAge(user));
   printf("%s\n", GetUserLocation(user));
-  PrintHobbiesList(GetUserHobbiesList(user));
+  PrintHobbiesList(GetHobbiesList(user));
 } 
+static void update_post(void * user, void * post){
+  PushPostsList(GetFriendsPostsList(user),post);
+}
 
+
+//==============================================//
 
 // Usada em todos os tipos de lista
 User * GetUser(List * list, char * name){
@@ -57,6 +64,10 @@ User * FriendsListRemove(List * list, char * name){
 void FreeFriendsList(List * list){
   FreeUsersList(list);
 }
+void UpdateFriendsPostsList(List * list, Post * post){
+  GoThroughList(list,update_post ,post);
+}
+
 
 
 // Lista de solicitações
