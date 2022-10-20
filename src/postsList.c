@@ -14,6 +14,10 @@ static void set_post(void * post, void * value){
   SetPostReach((Post*)post, *((int*)value));
 }
 
+static void print_post(void * post){
+  PrintPost(post);
+}
+
 //================================================//
 List * CreatePostsList(){
   return CreateVoidList();
@@ -33,4 +37,8 @@ void FreePostsList(List * list){
 
 void SetAllPostsReach(List * list, int value){
   GoThroughList(list, set_post, &value);
+}
+
+void PrintPostsList(List * list){
+  PrintList(list, print_post);
 }

@@ -13,4 +13,6 @@ void FreePostsList(List * list);
 
 void SetAllPostsReach(List * list, int value);
 
+void PrintPostsList(List * list);
+
 #endif

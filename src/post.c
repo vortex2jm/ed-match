@@ -34,6 +34,10 @@ void SetPostReach(Post * post, int value){
   post->reach += value;
 }
 
+void PrintPost(Post * post){
+  printf("%s\n%d\n%s", post->author, post->reach, post->content);
+}
+
 void FreePost(Post * post){
   if(post){
     if(post->author)

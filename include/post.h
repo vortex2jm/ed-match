@@ -13,6 +13,8 @@ int GetPostReach(Post * post);
 
 void SetPostReach(Post * post, int value);
 
+void PrintPost(Post * post);
+
 void FreePost(Post * post);
 
 #endif
