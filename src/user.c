@@ -79,3 +79,11 @@ List * GetLikesList(User * user){
 List * GetFriendsList(User * user){
   return user->friendsList;
 }
+
+List * GetOwnPostsList(User * user){
+  return user->ownPostsList;
+}
+
+List * GetFriendsPostsList(User * user){
+  return user->friendsPostsList;
+}

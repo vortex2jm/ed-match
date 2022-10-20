@@ -23,9 +23,6 @@ List * GetHobbiesList(User * user);
 
 void SetHobbiesList(User * user, List * newHobbiesList);
 
-// Adiciona ou remove um amigo da lista de amigos (A flag indica qual operação será realizada)
-User * UpdateUserFriendsList(User * user, User * friend, int addOrRemoveFlag);
-
 // Imprime os dados do usuário
 void PrintUser(User * user);
 
@@ -39,5 +36,9 @@ Package ** GetPackage(User * user);
 List * GetLikesList(User * user);
 
 List * GetFriendsList(User * user);
+
+List * GetOwnPostsList(User * user);
+
+List * GetFriendsPostsList(User * user);
 
 #endif
