@@ -177,13 +177,11 @@ void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, in
 
   User * user;
   Package ** packageArray, *package;
-  user = GetUser(usersList, "Joao");
 
   for(int x=0; x<packageNumber;x++){
     for(int y=0;y<usersNumber;y++){
 
       user = GetUser(usersList, usersNames[y]);
-      printf("user = %s\n", GetUserName(user));
 
       packageArray = GetPackage(user);
       package = packageArray[x];
@@ -203,7 +201,6 @@ void LikesProcessor(User * user, List * usersList, char * like){
 
   if(!strcmp(like,"."))
     return;
-  printf("LIKE = %s\n", like);
 
   // Caso o outro usuario já o tenha curtido (viram amigos)
   if(GetUser(GetLikesList(user),like)){
