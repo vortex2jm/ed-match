@@ -24,7 +24,9 @@ List * GetHobbiesList(User * user);
 void SetHobbiesList(User * user, List * newHobbiesList);
 
 // Imprime os dados do usuário
-void PrintUser(User * user);
+void PrintFullUser(User * user);
+
+void PrintPartialUser(User * user);
 
 // Libera o espaço de memória alocado para o usuário
 void DeleteUser(User * user);

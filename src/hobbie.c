@@ -1,6 +1,7 @@
 #include "../include/hobbie.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 struct hobbie {
   char * name;

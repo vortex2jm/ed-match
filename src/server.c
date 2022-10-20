@@ -194,6 +194,8 @@ void ExecutePackages(List * usersList, char ** usersNames, int packageNumber, in
       PostProcessor(user, usersList, GetPost(package));
     }
   }
+
+  // Processar as sugestões de amizade...
 }
 
 //=====================================================================================//
@@ -209,11 +211,11 @@ void LikesProcessor(User * user, List * usersList, char * like){
     
     PushFriendsList(GetFriendsList(likedUser), user);
     SetFriendsAmount(likedUser,1);
-    SetAllPostsReach(GetOwnPostsList(likedUser), 1); 
+    // SetAllPostsReach(GetOwnPostsList(likedUser), 1); 
 
     PushFriendsList(GetFriendsList(user), likedUser);
     SetFriendsAmount(user,1);
-    SetAllPostsReach(GetOwnPostsList(user), 1); 
+    // SetAllPostsReach(GetOwnPostsList(user), 1); 
 
     return;
   }
@@ -235,11 +237,11 @@ void UnlikesProcessor(User * user, List * usersList, char * unlike){
 
     FriendsListRemove(GetFriendsList(user), unlike);
     SetFriendsAmount(user, -1);
-    SetAllPostsReach(GetOwnPostsList(user), -1);
+    // SetAllPostsReach(GetOwnPostsList(user), -1);
 
     FriendsListRemove(GetFriendsList(unlikedUser), GetUserName(user));
     SetFriendsAmount(unlikedUser, -1);
-    SetAllPostsReach(GetOwnPostsList(unlikedUser), -1);
+    // SetAllPostsReach(GetOwnPostsList(unlikedUser), -1);
   }
   // retira o usuario da lista de likes do unlikedUser
   LikesListRemove(GetLikesList(unlikedUser), GetUserName(user));
@@ -267,5 +269,16 @@ void PostProcessor(User * user,List * usersList, char * post){
   // Adicionando o post na propria lista de posts
   Post * newPost = PostConstructor(GetUserName(user), post, GetFriendsAmount(user));
   PushPostsList(GetOwnPostsList(user), newPost);
-  UpdateFriendsPostsList(GetFriendsPostsList(user), newPost);
+  UpdateFriendsPostsList(GetFriendsList(user), newPost);
+}
+
+//=====================================================================================//
+void ProcessFriendsSuggestions(List * usersList){
+
+}
+
+//=====================================================================================//
+void GenerateReports(List * usersList){
+
+
 }

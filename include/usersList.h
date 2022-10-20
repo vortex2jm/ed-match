@@ -20,6 +20,8 @@ User * FriendsSuggestionListRemove(List * list, char * name);
 User * LikesListRemove(List * list, char * name);
 
 void PrintUsersList(List * list);
+void PrintFriendsSuggestionList(List * list);
+void PrintFriendsList(List * list);
 
 void FreeUsersList(List * list);
 void FreeFriendsList(List * list);

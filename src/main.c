@@ -12,10 +12,9 @@ int main(int argc, char ** argv){
   char userFile[50] = "./tests/in/";
 
   List * users = LoadUsers(allUsersFile);
-
-  // PrintUsersList(users);
-
   ProcessPackages(users,allUsersFile,userFile,packagesNumber);
-
+  
+  PrintUsersList(users);
+  
   return 0;
 }

@@ -1,6 +1,7 @@
 #include "../include/post.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 struct post{
   int reach;
@@ -35,7 +36,7 @@ void SetPostReach(Post * post, int value){
 }
 
 void PrintPost(Post * post){
-  printf("%s\n%d\n%s", post->author, post->reach, post->content);
+  printf("%s\n%d\n%s\n", post->author, post->reach, post->content);
 }
 
 void FreePost(Post * post){

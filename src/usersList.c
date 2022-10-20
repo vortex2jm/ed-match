@@ -14,18 +14,20 @@ static int compare_user(void * user, void * key){
 
   return strcmp(GetUserName(user), name) == 0;
 }
+//=====================================//
 static void print_user(void * user){
-  printf("%s\n", GetUserName(user));
-  printf("%d anos\n", GetUserAge(user));
-  printf("%s\n", GetUserLocation(user));
-  PrintHobbiesList(GetHobbiesList(user));
-} 
+  PrintFullUser(user);
+}
+//=====================================//
 static void update_post(void * user, void * post){
   PushPostsList(GetFriendsPostsList(user),post);
 }
+//=====================================//
+static void print_partial_user(void * user){
+  PrintPartialUser(user);
+}
 
-
-//==============================================//
+//=================================================================//
 
 // Usada em todos os tipos de lista
 User * GetUser(List * list, char * name){
@@ -67,6 +69,9 @@ void FreeFriendsList(List * list){
 void UpdateFriendsPostsList(List * list, Post * post){
   GoThroughList(list,update_post ,post);
 }
+void PrintFriendsList(List * list){
+  PrintList(list,print_partial_user);
+}
 
 
 
@@ -82,6 +87,9 @@ User * FriendsSuggestionListRemove(List * list, char * name){
 }
 void FreeFriendsSuggestionList(List * list){
   FreeUsersList(list);
+}
+void PrintFriendsSuggestionList(List * list){
+  PrintList(list,print_partial_user);
 }
 
 

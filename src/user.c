@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "../include/user.h"
 #include "../include/usersList.h"
 #include "../include/postsList.h"
+#include "../include/hobbiesList.h"
 
 struct user {
   int age;
@@ -86,4 +88,28 @@ List * GetOwnPostsList(User * user){
 
 List * GetFriendsPostsList(User * user){
   return user->friendsPostsList;
+}
+
+void PrintFullUser(User * user){
+  printf("\n====USUÁRIO=====================================//\n");
+  printf("%s\n%d\n%s\n", user->name, user->age, user->location);
+  
+  printf("%d amigos\n", user->friendsAmount);
+
+  printf("===HOBBIES===\n");
+  PrintHobbiesList(user->hobbiesList);
+  
+  printf("===POSTS PUBLICADOS===\n");
+  PrintPostsList(user->ownPostsList);
+  
+  printf("===POSTS DO FEED===\n");
+  PrintPostsList(user->friendsPostsList);
+
+  printf("===MATCHES===\n");
+  PrintFriendsList(user->friendsList);
+}
+
+// precisei fazer esta função para evitar recursão infinita
+void PrintPartialUser(User * user){
+  printf("%s\n",user->name);
 }
