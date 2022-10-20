@@ -10,7 +10,11 @@ static int compare_author_name(void * post, void * key){
   return strcmp(GetPostAuthor(post), name) == 0;
 }
 
+static void set_post(void * post, void * value){
+  SetPostReach((Post*)post, *((int*)value));
+}
 
+//================================================//
 List * CreatePostsList(){
   return CreateVoidList();
 }
@@ -28,5 +32,5 @@ void FreePostsList(List * list){
 }
 
 void SetAllPostsReach(List * list, int value){
-  SetAllList(list, SetPostReach, &value);
+  GoThroughList(list, set_post, &value);
 }
