@@ -36,7 +36,11 @@ void SetPostReach(Post * post, int value){
 }
 
 void PrintPost(Post * post){
-  printf("%s\n%d\n%s\n", post->author, post->reach, post->content);
+  printf("\"%s\" alcance: %d\n", post->content, post->reach);
+}
+
+void PrintPost2(Post * post){
+  printf("\"%s\" - %s\n", post->content, post->author);
 }
 
 void FreePost(Post * post){

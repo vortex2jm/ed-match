@@ -15,4 +15,6 @@ void SetAllPostsReach(List * list, int value);
 
 void PrintPostsList(List * list);
 
+void PrintPostsList2(List * list);
+
 #endif

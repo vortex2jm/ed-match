@@ -26,10 +26,6 @@ void SetHobbie(Hobbie * hobbie, char * hobbieName){
 }
 
 void PrintHobbie(Hobbie * hobbie){
-  if(!hobbie){
-    printf("Hobbie vazio!\n");
-    return;
-  }
   printf("%s\n", hobbie->name);
 }
 

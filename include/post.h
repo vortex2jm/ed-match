@@ -15,6 +15,8 @@ void SetPostReach(Post * post, int value);
 
 void PrintPost(Post * post);
 
+void PrintPost2(Post * post);
+
 void FreePost(Post * post);
 
 #endif

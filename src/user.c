@@ -96,25 +96,28 @@ List * GetFriendsSuggestionsList(User * user){
 }
 
 void PrintFullUser(User * user){
-  printf("\n====USUÁRIO=====================================//\n");
-  printf("%s\n%d\n%s\n", user->name, user->age, user->location);
-  
-  printf("%d amigos\n", user->friendsAmount);
+  printf("====================\n");
+  printf("%s\n%d anos\n%s\n%d amigos\n\n", user->name, user->age, user->location, user->friendsAmount);
 
-  printf("===HOBBIES===\n");
+  printf("HOBBIES\n");
   PrintHobbiesList(user->hobbiesList);
+  printf("\n");
   
-  printf("===POSTS PUBLICADOS===\n");
+  printf("POSTS PUBLICADOS\n");
   PrintPostsList(user->ownPostsList);
+  printf("\n");
   
-  printf("===POSTS DO FEED===\n");
-  PrintPostsList(user->friendsPostsList);
+  printf("POSTS DO FEED\n");
+  PrintPostsList2(user->friendsPostsList);
+  printf("\n");
 
-  printf("===MATCHES===\n");
+  printf("MATCHES\n");
   PrintFriendsList(user->friendsList);
+  printf("\n");
 
-  printf("===SUGESTOES DE AMIZADE===\n");
+  printf("SUGESTOES DE AMIZADE\n");
   PrintFriendsSuggestionList(user->friendsSuggestionList);
+  printf("\n");
 }
 
 // precisei fazer esta função para evitar recursão infinita

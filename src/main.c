@@ -10,7 +10,7 @@ int main(int argc, char ** argv){
   // caminhos relativos para os arquivos
   char allUsersFile[50] = "./tests/in/users.txt";
   char userFile[50] = "./tests/in/";
-  char logsFile[50] = "./logs.txt";
+  char logsFile[50] = "./tests/out/logs.txt";
 
   List * users = LoadUsers(allUsersFile);
   ProcessPackages(users,allUsersFile,userFile,logsFile,packagesNumber);

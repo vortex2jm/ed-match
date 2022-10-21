@@ -18,6 +18,10 @@ static void print_post(void * post){
   PrintPost(post);
 }
 
+static void print_post2(void * post){
+  PrintPost2(post);
+}
+
 //================================================//
 List * CreatePostsList(){
   return CreateVoidList();
@@ -41,4 +45,8 @@ void SetAllPostsReach(List * list, int value){
 
 void PrintPostsList(List * list){
   PrintList(list, print_post);
+}
+
+void PrintPostsList2(List * list){
+  PrintList(list, print_post2);
 }
