@@ -10,6 +10,7 @@
 struct user {
   int age;
   int friendsAmount;
+  int packagesAmount;
   char * name;
   char * location;
   List * likesList;
@@ -21,11 +22,12 @@ struct user {
   Package ** package;
 };
 
-User * UserConstructor(char * name, int age, char * location, List * hobbies){
+User * UserConstructor(char * name, int age, char * location, int packagesAmount, List * hobbies){
 
   User * user = malloc(sizeof(User));
   user->age = age;
   user->package = NULL;
+  user->packagesAmount = packagesAmount;
   user->friendsAmount = 0;
   user->name = strdup(name);
   user->hobbiesList = hobbies;
@@ -131,4 +133,20 @@ int ProcessUsersCompatibility(User * user1, User * user2){
   int sameLocation = !strcmp(user1->location, user2->location);
 
   return (ageDiff<=5 && sameLocation);
+}
+
+void FreeUser(User * user){
+  // Nesta função,liberaremos apenas a memória alocada dentro da construção do próprio usuário
+  if(user){
+    if(user->name)free(user->name);
+    if(user->package)FreePackages(user->package,user->packagesAmount);
+    if(user->location)free(user->location);
+    if(user->hobbiesList)FreeHobbiesList(user->hobbiesList);
+    if(user->ownPostsList)FreePostsList(user->ownPostsList);
+    if(user->likesList)DestructList(user->likesList);
+    if(user->friendsList)DestructList(user->friendsList);
+    if(user->friendsPostsList)DestructList(user->friendsPostsList);
+    if(user->friendsSuggestionList)DestructList(user->friendsSuggestionList);
+    free(user);
+  }
 }

@@ -36,6 +36,10 @@ static void process_compatibility(void * listUser, void * outUser){
   }
 }
 
+static void destruct_user(void * user, void * null){
+  FreeUser(user);
+}
+
 //=================================================================//
 
 // Usada em todos os tipos de lista
@@ -55,6 +59,7 @@ User * UsersListRemove(List * list, char * name){
   return ListRemove(list, compare_user, name);
 }
 void FreeUsersList(List * list){
+  GoThroughList(list, destruct_user,NULL);
   DestructList(list);
 }
 void PrintUsersList(List * list){

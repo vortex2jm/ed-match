@@ -22,6 +22,10 @@ static void print_post2(void * post){
   PrintPost2(post);
 }
 
+static void destruct_post(void * post, void * null){
+  FreePost(post);
+}
+
 //================================================//
 List * CreatePostsList(){
   return CreateVoidList();
@@ -36,6 +40,7 @@ Post * PostsListRemove(List * list, char * author){
 }
 
 void FreePostsList(List * list){
+  GoThroughList(list, destruct_post,NULL);
   DestructList(list);
 }
 

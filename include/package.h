@@ -15,6 +15,8 @@ char * GetPost(Package * package);
 
 void FreePackage(Package * package);
 
+void FreePackages(Package ** packages, int packagesAmount);
+
 void PrintPackage(Package * package);
 
 #endif

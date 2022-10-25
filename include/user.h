@@ -6,7 +6,7 @@
 typedef struct user User;
 
 // Construtor do tipo usuário
-User * UserConstructor(char * name, int age, char * location, List * hobbies);
+User * UserConstructor(char * name, int age, char * location, int packagesAmount, List * hobbies);
 
 // Retorna o nome do usuário
 char * GetUserName(User * user);
@@ -29,7 +29,7 @@ void PrintFullUser(User * user);
 void PrintPartialUser(User * user);
 
 // Libera o espaço de memória alocado para o usuário
-void DeleteUser(User * user);
+void FreeUser(User * user);
 
 void SetPackage(User * user, Package ** package);
 

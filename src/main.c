@@ -12,10 +12,11 @@ int main(int argc, char ** argv){
   char userFile[50] = "./tests/in/";
   char logsFile[50] = "./tests/out/logs.txt";
 
-  List * users = LoadUsers(allUsersFile);
+  List * users = LoadUsers(allUsersFile, packagesNumber);
+
   ProcessPackages(users,allUsersFile,userFile,logsFile,packagesNumber);
-  
   PrintUsersList(users);
-  
+  FreeUsersList(users);
+
   return 0;
 }

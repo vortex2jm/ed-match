@@ -15,7 +15,11 @@ static void print_hobbie(void * hobbie){
 }
 static void print_hobbie_into_file(void * hobbie, void * file){
   PrintHobbieF(hobbie, file);
-} 
+}
+
+static void destruct_hobbie(void * hobbie, void * null){
+  FreeHobbie(hobbie);
+}
 
 //========================================================//
 List * CreateHobbiesList(){
@@ -39,5 +43,6 @@ void PrintHobbiesListIntoFile(List * list, FILE * file){
 }
 
 void FreeHobbiesList(List * list){
+  GoThroughList(list, destruct_hobbie, NULL);
   DestructList(list);
 }

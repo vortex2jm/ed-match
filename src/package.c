@@ -47,6 +47,15 @@ void FreePackage(Package * package){
   }
 }
 
+void FreePackages(Package ** packages, int packagesAmount){
+  if(packages){
+    for(int x=0;x<packagesAmount;x++){
+      FreePackage(packages[x]);
+    }
+    free(packages);
+  }
+}
+
 void PrintPackage(Package * package){
   if(!package){
     printf("Ainda nao há um pacote!\n");

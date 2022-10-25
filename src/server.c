@@ -11,7 +11,7 @@
 // Public functions
 void StartValidator(int argc);
 int PackagesNumber(char ** argv);
-List * LoadUsers(char * fileWay);
+List * LoadUsers(char * fileWay, int packagesAmount);
 List * ProcessPackages(List * usersList, char * allUsersFile,
                        char * singleUserFile, char * logsFileDir, int packageNumber);
 
@@ -44,7 +44,7 @@ int PackagesNumber(char ** argv){
 }
 
 //=====================================================================================//
-List * LoadUsers(char * fileWay){
+List * LoadUsers(char * fileWay, int packagesAmount){
 
   FILE * usersFile = fopen(fileWay, "r");
 
@@ -59,7 +59,7 @@ List * LoadUsers(char * fileWay){
     fscanf(usersFile,"%[^;];%d;%[^;];%[^\n]\n", name, &age, location, hobbies);
 
     hobbiesList = LoadHobbies(hobbies);
-    user = UserConstructor(name, age, location, hobbiesList);
+    user = UserConstructor(name, age, location, packagesAmount, hobbiesList);
     PushUsersList(usersList, user);
   }
 
@@ -121,9 +121,6 @@ char ** CreateNamesList(FILE * usersFile, int usersNumber){
   char name[50];
 
   char ** usersName = malloc(sizeof(char*) * usersNumber);
-  for(int x=0;x<usersNumber;x++){
-    usersName[x] = malloc(sizeof(char) * 50);
-  }
 
   int index=0;
   while(!feof(usersFile)){
