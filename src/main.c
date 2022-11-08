@@ -1,20 +1,20 @@
+#include "../include/server.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/server.h"
 
-int main(int argc, char ** argv){
+int main(int argc, char **argv) {
 
   StartValidator(argc);
   int packagesNumber = PackagesNumber(argv);
-  
+
   // caminhos relativos para os arquivos
-  char allUsersFile[50] = "./tests/in/users.txt";
-  char userFile[50] = "./tests/in/";
-  char logsFile[50] = "./tests/out/logs.txt";
+  char allUsersFile[50] = "./tests/test4/input/users.txt";
+  char userFile[50] = "./tests/test4/input/";
+  char logsFile[50] = "./tests/test4/output/logs.txt";
 
-  List * users = LoadUsers(allUsersFile, packagesNumber);
+  List *users = LoadUsers(allUsersFile, packagesNumber);
 
-  ProcessPackages(users,allUsersFile,userFile,logsFile,packagesNumber);
+  ProcessPackages(users, allUsersFile, userFile, logsFile, packagesNumber);
   PrintUsersList(users);
   FreeUsersList(users);
 

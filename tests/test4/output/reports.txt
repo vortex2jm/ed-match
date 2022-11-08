@@ -11,7 +11,6 @@ POSTS PUBLICADOS
 "Acabei de chegar pessoal!" alcance: 0
 "Acordar cedo bom demais!" alcance: 0
 "Transito ta horrivel hoje" alcance: 1
-"Transito ta horrivel hoje" alcance: 1
 
 POSTS DO FEED
 "Meu fone quebrou :(, alguem sabe um bom?" - Mary
@@ -217,7 +216,6 @@ POSTS PUBLICADOS
 "Meu deus eu to ouvindo os vizinhos contarem a maior fofoca kkkk amo" alcance: 1
 
 POSTS DO FEED
-"Transito ta horrivel hoje" - Ava
 "Transito ta horrivel hoje" - Ava
 
 MATCHES
