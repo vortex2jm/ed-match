@@ -10,7 +10,6 @@
 + Maria curtiu Joao
 # Maria e Joao viraram amigos
 + Jeremias curtiu Pablo
-_ Pablo descurtiu Jeremias
 + Joao curtiu Pablo
 ! Joao mudou seu hobbie para:
 ~ carpintaria
@@ -34,7 +33,6 @@ _ Pablo descurtiu Jeremias
 -> Opa, posso ajudar sim! Chama no direct
 * Maria publicou:
 -> Gente fiz um regador automatico que massa!
-_ Jeremias descurtiu Joao
 ! Jeremias mudou seu hobbie para:
 ~ dancar
 ~ vendas
