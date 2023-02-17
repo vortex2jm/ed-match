@@ -1,0 +1,13 @@
+u1;52;Vitoria;beep-boop
+u2;58;Vitoria;beep-boop
+u3;59;Vitoria;beep-boop
+u4;71;Vitoria;beep-boop
+u5;78;Vitoria;beep-boop
+u6;75;Vitoria;beep-boop
+u7;102;Vitoria;beep-boop
+u8;72;Vitoria;beep-boop
+u9;39;Vitoria;beep-boop
+u10;36;Vitoria;beep-boop
+u11;32;Vitoria;beep-boop
+u12;37;Vitoria;beep-boop
+u13;34;Vitoria;beep-boop

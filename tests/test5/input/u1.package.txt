@@ -1,0 +1,20 @@
+u2;.;danca;.
+u5;.;danca do robo;.
+u7;u2;.;aoia a dancinha
+u3;u5;fazer teste;.
+u4;u4;.;no lab!
+u2;u3;.;.
+u8;.;boop-beep;.
+u10;.;.;.
+.;.;.;fazendo musica
+u5;.;.;.
+u9;u10;.;.
+u12;u8;.;.
+.;.;boop-beep,beep-boop;.
+u3;.;.;musica nova
+.;.;inventar coisa;.
+.;u9;.;adoro programar
+u8;u2;.;.
+u2;.;descansar;.
+u9;u8;.;.
+.;.;roubar arte;e se eu pegar referencia?

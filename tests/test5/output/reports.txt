@@ -1,0 +1,508 @@
+====================
+u1
+52 anos
+Vitoria
+2 amigos
+
+HOBBIES
+roubar arte
+
+POSTS PUBLICADOS
+"aoia a dancinha" alcance: 0
+"no lab!" alcance: 1
+"fazendo musica" alcance: 0
+"musica nova" alcance: 0
+"adoro programar" alcance: 0
+"e se eu pegar referencia?" alcance: 1
+
+POSTS DO FEED
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+
+MATCHES
+u5
+u9
+
+SUGESTOES DE AMIZADE
+
+====================
+u2
+58 anos
+Vitoria
+0 amigos
+
+HOBBIES
+defazer amizade
+
+POSTS PUBLICADOS
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+"Bom dia pessoal!" alcance: 0
+
+POSTS DO FEED
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u3
+
+====================
+u3
+59 anos
+Vitoria
+1 amigos
+
+HOBBIES
+beep-boop
+
+POSTS PUBLICADOS
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 0
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 2
+"Parabens voce ganhou um sorteio!" alcance: 2
+"Parabens voce ganhou um sorteio!" alcance: 3
+"Parabens voce ganhou um sorteio!" alcance: 2
+"Parabens voce ganhou um sorteio!" alcance: 1
+"Parabens voce ganhou um sorteio!" alcance: 1
+
+POSTS DO FEED
+"no lab!" - u1
+
+MATCHES
+u8
+
+SUGESTOES DE AMIZADE
+u2
+
+====================
+u4
+71 anos
+Vitoria
+3 amigos
+
+HOBBIES
+beep-boop-boop20
+
+POSTS PUBLICADOS
+"beep?" alcance: 0
+"beep?" alcance: 1
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 2
+"beep?" alcance: 3
+"beep?" alcance: 4
+"beep?" alcance: 4
+"beep?" alcance: 4
+"beep?" alcance: 5
+"beep?" alcance: 4
+"beep?" alcance: 4
+"beep?" alcance: 4
+"beep?" alcance: 4
+"beep?" alcance: 3
+
+POSTS DO FEED
+"Boa tarde" - u11
+"Boa noite" - u11
+"Bom dia" - u11
+"Boa tarde" - u11
+"Boa noite" - u11
+"Bom dia" - u11
+"Boa tarde" - u11
+"Boa noite" - u11
+"Bom dia" - u11
+"Tudo top hj?" - u13
+"Boa tarde" - u11
+"Tudo top hj?" - u13
+"Boa noite" - u11
+"Tudo top hj?" - u13
+"Bom dia" - u11
+"Tudo top hj?" - u13
+"Boa tarde" - u11
+"Tudo top hj?" - u13
+"Boa noite" - u11
+"Bom dia" - u11
+"Boa tarde" - u11
+"Boa noite" - u11
+
+MATCHES
+u9
+u7
+u8
+
+SUGESTOES DE AMIZADE
+u6
+
+====================
+u5
+78 anos
+Vitoria
+1 amigos
+
+HOBBIES
+beep-boop
+
+POSTS PUBLICADOS
+
+POSTS DO FEED
+"e se eu pegar referencia?" - u1
+
+MATCHES
+u1
+
+SUGESTOES DE AMIZADE
+u6
+
+====================
+u6
+75 anos
+Vitoria
+0 amigos
+
+HOBBIES
+nao faco amizade com robo
+
+POSTS PUBLICADOS
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+"quem e robo ja pode parar de seguir" alcance: 0
+
+POSTS DO FEED
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u4
+u5
+u8
+
+====================
+u7
+102 anos
+Vitoria
+1 amigos
+
+HOBBIES
+Beep-Boop1
+
+POSTS PUBLICADOS
+
+POSTS DO FEED
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+
+MATCHES
+u4
+
+SUGESTOES DE AMIZADE
+
+====================
+u8
+72 anos
+Vitoria
+3 amigos
+
+HOBBIES
+Beep-Boop1
+
+POSTS PUBLICADOS
+
+POSTS DO FEED
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+
+MATCHES
+u3
+u9
+u4
+
+SUGESTOES DE AMIZADE
+u6
+
+====================
+u9
+39 anos
+Vitoria
+3 amigos
+
+HOBBIES
+Beep-Boop1
+
+POSTS PUBLICADOS
+
+POSTS DO FEED
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"Parabens voce ganhou um sorteio!" - u3
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+
+MATCHES
+u4
+u8
+u1
+
+SUGESTOES DE AMIZADE
+u10
+u12
+u13
+
+====================
+u10
+36 anos
+Vitoria
+0 amigos
+
+HOBBIES
+Anotar coisas na conta
+
+POSTS PUBLICADOS
+"Comprar leite" alcance: 0
+"Fazer trabalho de Ed" alcance: 0
+"Testar codigo" alcance: 0
+"repetir" alcance: 0
+"Comprar leite" alcance: 0
+"Fazer trabalho de Ed" alcance: 0
+"Testar codigo" alcance: 0
+"repetir" alcance: 0
+"Comprar leite" alcance: 0
+"Fazer trabalho de Ed" alcance: 0
+"Testar codigo" alcance: 0
+"repetir" alcance: 0
+"Comprar leite" alcance: 0
+"Fazer trabalho de Ed" alcance: 0
+"Testar codigo" alcance: 0
+"repetir" alcance: 0
+"Comprar leite" alcance: 0
+"Fazer trabalho de Ed" alcance: 0
+"Testar codigo" alcance: 0
+"repetir" alcance: 0
+
+POSTS DO FEED
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u9
+u11
+u12
+u13
+
+====================
+u11
+32 anos
+Vitoria
+0 amigos
+
+HOBBIES
+beep-boop
+
+POSTS PUBLICADOS
+"Bom dia" alcance: 0
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 1
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 1
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 1
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 2
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 1
+"Boa tarde" alcance: 1
+"Boa noite" alcance: 1
+"Bom dia" alcance: 0
+"Boa tarde" alcance: 0
+
+POSTS DO FEED
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"Tudo top hj?" - u13
+"beep?" - u4
+"Tudo top hj?" - u13
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u10
+u12
+u13
+
+====================
+u12
+37 anos
+Vitoria
+0 amigos
+
+HOBBIES
+beep-boop
+
+POSTS PUBLICADOS
+
+POSTS DO FEED
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u9
+u10
+u11
+u13
+
+====================
+u13
+34 anos
+Vitoria
+0 amigos
+
+HOBBIES
+beep-boop
+
+POSTS PUBLICADOS
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 1
+"Tudo top hj?" alcance: 1
+"Tudo top hj?" alcance: 2
+"Tudo top hj?" alcance: 2
+"Tudo top hj?" alcance: 1
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+"Tudo top hj?" alcance: 0
+
+POSTS DO FEED
+"beep?" - u4
+"beep?" - u4
+"beep?" - u4
+"Bom dia" - u11
+"beep?" - u4
+"beep?" - u4
+
+MATCHES
+
+SUGESTOES DE AMIZADE
+u9
+u10
+u11
+u12
+
