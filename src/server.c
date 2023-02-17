@@ -48,6 +48,11 @@ List * LoadUsers(char * fileWay, int packagesAmount){
 
   FILE * usersFile = fopen(fileWay, "r");
 
+  if(!usersFile){
+    printf("Users file error");
+    exit(1);
+  }
+
   int age = 0;
   char name[50], location[50], hobbies[500];
 
@@ -89,6 +94,11 @@ List * LoadHobbies(char * hobbies){
 List * ProcessPackages(List * usersList, char * allUsersFile, char * singleUserFileDir, char * logsFileDir, int packageNumber){
   
   FILE * usersFile = fopen(allUsersFile,"r");
+
+  if(!usersFile){
+    printf("All users file error");
+    exit(1);
+  }
 
   int usersNumber = LinesNumber(usersFile);
   fseek(usersFile,0,SEEK_SET);
